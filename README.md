@@ -35,7 +35,7 @@ def closed!
 end
 
 # also adds appropriate named_scope accessors if the class responds to
-named_scope (ie it is an ActiveRecord subclass)
+# named_scope (ie it is an ActiveRecord subclass)
 
 named_scope :open, :conditions => {:status => 'OPEN'}
 named_scope :closed, :conditions => {:status => 'CLOSED'}
