@@ -3,7 +3,8 @@ status_accessor
 
 A simple bit of code we keep reusing.
 
-It provides a quick way of setting up accessors for a status-like field
+It provides a quick way of setting up accessors for a status-like field,
+which by default is called :status, but can be anything
 
 Examples
 --------
@@ -33,16 +34,17 @@ def closed!
   status = 'CLOSED'
 end
 
-# also adds appropriate named_scope accessors
+# also adds appropriate named_scope accessors if the class responds to
+named_scope (ie it is an ActiveRecord subclass)
 
 named_scope :open, :conditions => {:status => 'OPEN'}
 named_scope :closed, :conditions => {:status => 'CLOSED'}
 ```
 
-an Alternative field name can also be specified to override the default fieldname of 'status' like this:
+An alternative field name can also be specified to override the default fieldname of 'status' like this:
 
 ```ruby
-# status_accessor :foo, [:open, :closed]
+status_accessor :foo, [:open, :closed]
 ```
 
 which works as expected so
