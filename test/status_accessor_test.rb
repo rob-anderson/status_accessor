@@ -18,6 +18,11 @@ class StatusAccessorTest < Test::Unit::TestCase
     assert_equal ['CHEESE', 'HAM'], Test1.status_strings # reading the Test2 definition hasn't overwritten class variable
   end
 
+  def test_status_strings_provdes_cloned_instance
+    assert_equal ['Any', 'CHEESE', 'HAM'], Test1.status_strings.unshift('Any')
+    assert_equal ['CHEESE', 'HAM'], Test1.status_strings
+  end
+
   class Valve
     extend StatusAccessor
     attr_accessor :status
