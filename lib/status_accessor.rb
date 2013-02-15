@@ -38,7 +38,7 @@ module StatusAccessor
     class_variable_set "@@#{field_name}_strings", statuses.collect {|s| s.to_s.upcase}
 
     (class << self; self; end).send(:define_method, "#{field_name}_strings") do
-      class_variable_get "@@#{field_name}_strings"
+      class_variable_get("@@#{field_name}_strings").clone
     end
 
   end
