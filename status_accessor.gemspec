@@ -3,7 +3,7 @@ require File.expand_path("../lib/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'status_accessor'
-  s.version     = StatusAcccessor::VERSION
+  s.version     = StatusAccessor::VERSION
   s.platform    = Gem::Platform::RUBY
   s.date        = '2012-03-26'
   s.summary     = "utility for handling status-like fields"
