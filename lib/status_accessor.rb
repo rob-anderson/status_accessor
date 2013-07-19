@@ -30,7 +30,7 @@ module StatusAccessor
       if self.respond_to?(:named_scope) # rails 2
         named_scope s.to_s.downcase.to_sym, :conditions => {:"#{field_name}" => state}
       elsif self.respond_to?(:scope) # rails 3
-        scope s.to_s.downcase.to_sym, :conditions => {:"#{field_name}" => state}
+        scope s.to_s.downcase.to_sym, -> { where :"#{field_name}" => state }
       end
 
     end
